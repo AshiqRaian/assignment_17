@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
+    <title>Javascript</title>
+    <link rel="icon" href="images/favicon.png">
+
+  </head>
+  <body class="bg-info">
+    
+    <div class="container mt-5 text-center">
+   
+      <h1 class="font-weight-bold">Check your result with grade</h1>
+      
+      <input placeholder="Enter your marks in Creative" type="number" id="creative" onkeyup="words()" class="form-control mt-4 w-50 mx-auto">
+      <input placeholder="Enter your marks in Objective" type="number" id="objective" onkeyup="words()" class="form-control my-4 w-50 mx-auto">
+
+      <div class="row justify-content-center align-items-center">
+
+        <h2 class="col-sm-3 col-12">Total Marks : <span id="display"></span></h2>
+        <h2 class="col-sm-3 col-12">Result : <span id="result"></span></h2>
+        <h2 class="col-sm-3 col-12">Grade Point :  <span id="gpa"></span></h2>
+
+      </div>
+    </div>
+
+    <script>
+      function words(){
+        var a = document.getElementById('creative').value;
+        var b = document.getElementById('objective').value;
+
+        var d = +a + +b; 
+            
+        document.getElementById('display').innerHTML = d;
+
+        if ( d >= 80 ) {
+          document.getElementById('result').innerHTML = "A+";
+          document.getElementById('gpa').innerHTML = "5.00";
+        }
+        else if ( d >= 70 ) {
+          document.getElementById('result').innerHTML = "A";
+          document.getElementById('gpa').innerHTML = "4.00";
+        }
+        else if ( d >= 60 ) {
+          document.getElementById('result').innerHTML = "A-";
+          document.getElementById('gpa').innerHTML = "3.50";
+        }
+        else if ( d >= 50 ) {
+          document.getElementById('result').innerHTML = "B";
+          document.getElementById('gpa').innerHTML = "3.00";
+        }
+        else if ( d >= 40 ) {
+          document.getElementById('result').innerHTML = "C";
+          document.getElementById('gpa').innerHTML = "2.00";
+        }
+        else if ( d >= 33 ) {
+          document.getElementById('result').innerHTML = "D";
+          document.getElementById('gpa').innerHTML = "1.00";
+        }
+        else if ( d >= 0 ) {
+          document.getElementById('result').innerHTML = "F";
+          document.getElementById('gpa').innerHTML = "0";
+        }
+        else if ( d < 0 ) {
+          document.getElementById('result').innerHTML = "Error";
+          document.getElementById('gpa').innerHTML = "Error";
+        }            
+        if ( d > 100 ) {
+          document.getElementById('result').innerHTML = "Error";
+          document.getElementById('gpa').innerHTML = "Error";
+        }
+          
+      }
+    </script>
+    
+  </body>
+</html>
